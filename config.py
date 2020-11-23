@@ -15,7 +15,7 @@ import torch
 
 # ===Program===
 if_test = False
-CUDA = True
+CUDA = False
 multi_gpu = False
 if_save = True
 data_shuffle = False  # False
@@ -49,9 +49,9 @@ loss_type = 'rsgan'  # rsgan lsgan ragan vanilla wgan hinge, for Discriminator (
 mu_type = 'ragan'  # rsgan lsgan ragan vanilla wgan hinge
 eval_type = 'Ra'  # standard, rsgan, nll, nll-f1, Ra, bleu3, bleu-f1
 d_type = 'Ra'  # S (Standard), Ra (Relativistic_average)
-vocab_size = 5000  # oracle: 5000, coco: 4683, emnlp: 5256, amazon_app_book: 6418, mr15: 6289
-max_seq_len = 20  # oracle: 20, coco: 37, emnlp: 51, amazon_app_book: 40
-ADV_train_epoch = 2000  # SeqGAN, LeakGAN-200, RelGAN-3000
+vocab_size = 30000  # oracle: 5000, coco: 4683, emnlp: 5256, amazon_app_book: 6418, mr15: 6289
+max_seq_len = 100  # oracle: 20, coco: 37, emnlp: 51, amazon_app_book: 40
+ADV_train_epoch = 200  # SeqGAN, LeakGAN-200, RelGAN-3000
 extend_vocab_size = 0  # plus test data, only used for Classifier
 
 temp_adpt = 'exp'  # no, lin, exp, log, sigmoid, quad, sqrt
@@ -60,18 +60,18 @@ evo_temp_step = 1
 temperature = 1
 
 # ===Basic Train===
-samples_num = 10000  # 10000, mr15: 2000,
-MLE_train_epoch = 150  # SeqGAN-80, LeakGAN-8, RelGAN-150
+samples_num = 15000  # 10000, mr15: 2000,
+MLE_train_epoch = 80  # SeqGAN-80, LeakGAN-8, RelGAN-150
 PRE_clas_epoch = 10
 inter_epoch = 15  # LeakGAN-10
-batch_size = 64  # 64
+batch_size = 60  # 64
 start_letter = 1
 padding_idx = 0
 start_token = 'BOS'
 padding_token = 'EOS'
 gen_lr = 0.01  # 0.01
 gen_adv_lr = 1e-4  # RelGAN-1e-4
-dis_lr = 1e-4  # SeqGAN,LeakGAN-1e-2, RelGAN-1e-4
+dis_lr = 1e-2  # SeqGAN,LeakGAN-1e-2, RelGAN-1e-4
 clas_lr = 1e-3
 clip_norm = 5.0
 
@@ -105,7 +105,7 @@ num_heads = 2  # RelGAN-2
 head_size = 256  # RelGAN-256
 
 # ===Discriminator===
-d_step = 5  # SeqGAN-50, LeakGAN-5
+d_step = 50  # SeqGAN-50, LeakGAN-5
 d_epoch = 3  # SeqGAN,LeakGAN-3
 ADV_d_step = 5  # SeqGAN,LeakGAN,RelGAN-5
 ADV_d_epoch = 3  # SeqGAN,LeakGAN-3

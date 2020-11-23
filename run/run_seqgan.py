@@ -34,7 +34,7 @@ scriptname = 'main.py'
 # ===Program===
 if_test = int(False)
 run_model = 'seqgan'
-CUDA = int(True)
+CUDA = int(False)
 oracle_pretrain = int(True)
 gen_pretrain = int(False)
 dis_pretrain = int(False)
@@ -44,17 +44,17 @@ tips = 'SeqGAN experiments'
 
 # ===Oracle  or Real===
 if_real_data = [int(False), int(True), int(True)]
-dataset = ['oracle', 'image_coco', 'emnlp_news']
-vocab_size = [5000, 0, 0]
+dataset = ['oracle', 'av', 'emnlp_news']
+vocab_size = [30000, 0, 0]
 
 # ===Basic Param===
 data_shuffle = int(False)
 model_type = 'vanilla'
 gen_init = 'normal'
 dis_init = 'uniform'
-samples_num = 10000
-batch_size = 64
-max_seq_len = 20
+samples_num = 15000
+batch_size = 60
+max_seq_len = 100
 gen_lr = 0.01
 dis_lr = 1e-4
 pre_log_step = 10
@@ -87,7 +87,7 @@ args = [
     '--if_test', if_test,
     '--run_model', run_model,
     '--cuda', CUDA,
-    # '--device', gpu_id,  # comment for auto GPU
+    '--device', gpu_id,  # comment for auto GPU
     '--ora_pretrain', oracle_pretrain,
     '--gen_pretrain', gen_pretrain,
     '--dis_pretrain', dis_pretrain,
